@@ -7,6 +7,16 @@ public class Ponto {
     private String latitude;
     private String longitude;
     private String descricao;
+    private String tipo;
+
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 
 
     public Long get_id() {

@@ -39,7 +39,8 @@ public class CoderacerBD  extends SQLiteOpenHelper {
                 "( _id integer primary key autoincrement, " +
                 " descricao text, " +
                 " longitude text, " +
-                " latitude text);";
+                " latitude text," +
+                "tipo text);";
         Log.d(TAG, "Criando a tabela DAO. Aguarde ...");
         db.execSQL(sql);
         Log.d(TAG, "Tabela cachorro criada");
@@ -65,6 +66,7 @@ public class CoderacerBD  extends SQLiteOpenHelper {
             values.put("longitude", ponto.getLongitude());
             values.put("latitude", ponto.getLatitude());
             values.put("descricao", ponto.getDescricao());
+            values.put("tipo", ponto.getTipo());
             Log.i("teste", "Executou o script de upgrade da tabela Dao.");
             if(ponto.get_id() == null){
                 //insere no banco de dados
@@ -99,6 +101,7 @@ public class CoderacerBD  extends SQLiteOpenHelper {
                 ponto.setLatitude(c.getString(c.getColumnIndex("latitude")));
                 ponto.setLongitude(c.getString(c.getColumnIndex("longitude")));
                 ponto.setDescricao(c.getString(c.getColumnIndex("descricao")));
+                ponto.setTipo(c.getString(c.getColumnIndex("tipo")));
                 pontos.add(ponto);
             }while (c.moveToNext());
         }
